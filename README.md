@@ -19,9 +19,9 @@ GUBUK TANI MACHINE LEARNING PROJECT README
 
 This ML project is our final project for Bangkit Academy 2023 Batch 1.
 
-## **Android:**
+### Android: [Gubuk Tani Android App](https://github.com/gubuktani/md-gubuk-tani-app)
 
-## **Cloud:**
+### Cloud: [Gubuk Tani Backend](https://github.com/gubuktani/cc-backend-api) & [Gubuk Tani Frontend](https://github.com/gubuktani/cc-frontend-cms)
 
 ## **Project Background:**
 
