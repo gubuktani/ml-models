@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img align="center" src="images\logo.jpg"  width="500"></img>
+  <img align="center" src="images\logo.jpg"  width="250"></img>
 <br>
 GUBUK TANI MACHINE LEARNING PROJECT README
 </h1>
@@ -43,7 +43,7 @@ This ML project is our final project for Bangkit Academy 2023 Batch 1.
 
   - [Tomato Leaf Disease](https://www.kaggle.com/datasets/noulam/tomato)
 
-- Rice Plant Diseases
+- Potato Plant Diseases
 
   - [Potato Leaf Disease]
 
