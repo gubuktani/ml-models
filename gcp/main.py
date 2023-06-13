@@ -31,7 +31,7 @@ def detection(request):
     image = image / 255
     img_array = tf.expand_dims(image, 0)
     
-    class_leaf = ["leaf", "not leaf"]
+    class_leaf = ["Daun", "Bukan Daun"]
     
     # Perform leaf detection
     if leaf_model is None:
@@ -42,29 +42,29 @@ def detection(request):
     is_leaf = class_leaf[np.argmax(leaf_detection[0])]
 
     plant = request.form["plant"]
-    if is_leaf == "leaf":
+    if is_leaf == "Daun":
         class_names = []
         detection = []
 
-        if plant == "potato":
-            class_names = ["Early Blight", "Late Blight", "Healthy"]
+        if plant == "kentang":
+            class_names = ["Busuk awal", "Busuk terlambat", "Sehat"]
             if potato_model is None:
                 download_blob(BUCKET_NAME, "potato_models/potatoes.h5", "/tmp/potatoes.h5")
                 potato_model = tf.keras.models.load_model("/tmp/potatoes.h5")
 
             detection = potato_model.predict(img_array)
 
-        elif plant == "tomato":
-            class_names = ['Bacterial spot', 'Early blight', 'Late blight', 'Leaf Mold', 'Septoria leaf spot',
-                           'Spider mites', 'Target Spot', 'Yellow Leaf Curl Virus', 'Mosaic virus', 'Healthy']
+        elif plant == "tomat":
+            class_names = ['Bercak bakteri', 'Busuk awal', 'Busuk terlambat', 'Jamur daun', 'Bercak daun Septoria',
+                           'Kutu laba-laba', 'Bercak daun Corynespora', 'Virus keriting daun kuning', 'Virus mozaik', 'Sehat']
             if tomato_model is None:
                 download_blob(BUCKET_NAME, "tomato_models/tomatoes.h5", "/tmp/tomatoes.h5")
                 tomato_model = tf.keras.models.load_model("/tmp/tomatoes.h5")
 
             detection = tomato_model.predict(img_array)
 
-        elif plant == "apple":
-            class_names = ["Healthy", "Rust", "Scab"]
+        elif plant == "apel":
+            class_names = ["Sehat", "Karat", "Scab"]
             if apple_model is None:
                 download_blob(BUCKET_NAME, "apple_models/apples.h5", "/tmp/apples.h5")
                 apple_model = tf.keras.models.load_model("/tmp/apples.h5")
@@ -72,11 +72,11 @@ def detection(request):
             detection = apple_model.predict(img_array)
 
         else:
-            return {"error": "Plant not found"}
+            return {"status": "error", "message": "Tanaman tidak ditemukan"}
 
         detected_class = class_names[np.argmax(detection[0])]
         confidence = round(100 * np.max(detection[0]), 2)
 
-        return {"plant": plant, "label": detected_class, "confidence": confidence}
+        return {"status": "success", "plant": plant, "label": detected_class, "confidence": confidence}
     else:
-        return {"error": "This image is not leaf"}
+        return {"status": "error", "message": "Ini bukan gambar daun"}
