@@ -83,15 +83,14 @@ Building four kinds of models that include [Apple leaf disease](https://github.c
 2. Import the necessary libraries in your Jupyter Notebook or Google Colab: 
   ```python
   import tensorflow as tf
-  from tensorflow import keras
   from PIL import Image
   import numpy as np
   ```
 3. Load the model from the `.h5` file:
   ```python
-  model = keras.models.load_model('path/to/model.h5')
+  model = tf.keras.models.load_model('path/to/model.h5')
   ```
-4. Prepare your image data for inference. Assuming you have an image file named "image.jpg" that you want to use, use the following code to load and preprocess the image:
+4. Prepare your image data for inference. Assuming you have an image file named `image.jpg` that you want to use, use the following code to load and preprocess the image:
   ```python
   image_path = 'path/to/image.jpg'
   image = np.array(Image.open(image_path).convert("RGB").resize((256, 256)))
