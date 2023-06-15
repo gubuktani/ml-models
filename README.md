@@ -103,4 +103,3 @@ Building four kinds of models that include [Apple leaf disease](https://github.c
   ```
   The `predictions` variable will contain the predicted output based on the input image.
 6. Customize the code as per your specific requirements.
-
