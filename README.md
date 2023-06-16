@@ -36,6 +36,7 @@ Building four kinds of models that include [Apple leaf disease](https://github.c
 - Apple Leaf Diseases
 - Tomato Leaf Diseases
 - Potato Leaf Diseases
+- Rice Leaf Disease
 
 **Dataset Link:**
 
@@ -48,6 +49,9 @@ Building four kinds of models that include [Apple leaf disease](https://github.c
 - Potato Plant Diseases
 
   - [Potato Leaf Disease](https://www.kaggle.com/datasets/muhammadardiputra/potato-leaf-disease-dataset)
+
+- Rice Plant Disease
+  - [Rice Plant Disease]()
 
 - Leaf Detection
   - [Leaf](https://www.kaggle.com/datasets/fabinahian/plant-disease-45-classes)
@@ -67,6 +71,10 @@ Building four kinds of models that include [Apple leaf disease](https://github.c
 
 - [Potato leaf disease](https://github.com/gubuktani/MachineLearning-GubukTani/blob/main/Notebook/Gubuktani_Potato_disease.ipynb)
 
+### Rice Disease
+
+- [Rice leaf disease](https://github.com/gubuktani/ml-models/blob/main/Notebook/Rice_disease.ipynb)
+
 ### Leaf Detection
 
 - [Leaf detection](https://github.com/gubuktani/MachineLearning-GubukTani/blob/main/Notebook/leafDetection.ipynb)
@@ -78,17 +86,19 @@ Building four kinds of models that include [Apple leaf disease](https://github.c
 4. Pillow
 
 ## How to use
-1. Download the model `.h5` file
-2. Import the necessary libraries in your Jupyter Notebook or Google Colab: 
+1. Download the model `.h5` file & `json` file
 2. Import the necessary libraries in your Jupyter Notebook or Google Colab: 
   ```python
   import tensorflow as tf
   from PIL import Image
   import numpy as np
+  import json
   ```
-3. Load the model from the `.h5` file:
+3. Load the model from the `.h5` file & `.json` file for class name:
   ```python
   model = tf.keras.models.load_model('path/to/model.h5')
+  with open('/path/to/class.json', 'r') as file:
+    class_name = json.load(file)
   ```
 4. Prepare your image data for inference. Assuming you have an image file named `image.jpg` that you want to use, use the following code to load and preprocess the image:
   ```python
@@ -99,8 +109,14 @@ Building four kinds of models that include [Apple leaf disease](https://github.c
   ```
 5. Perform inference using the loaded model:
   ```python
+  class_mapping = list(class_name)
   predictions = model.predict(image_array)
+  predicted_class_index = np.argmax(predictions)
+  predicted_class = class_mapping[predicted_class_index]
+
+  print(predicted_class)
   ```
-  The `predictions` variable will contain the predicted output based on the input image.
+  
+  The `predicted_class` variable will contain the predicted output based on the input image.
 
 6. Customize the code as per your specific requirements.
