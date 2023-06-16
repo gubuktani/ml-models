@@ -71,6 +71,14 @@ def detection(request):
 
             detection = apple_model.predict(img_array)
 
+        elif plant == "padi":
+            class_names = ["Penyakit hawar daun bakteri", "Bintik coklat", "Kotoran daun"]
+            if rice_model is None:
+                download_blob(BUCKET_NAME, "rice_models/rice.h5", "/tmp/rice.h5")
+                rice_model = tf.keras.models.load_model("/tmp/rice.h5")
+
+            detection = rice_model.predict(img_array)
+
         else:
             return {"status": "error", "message": "Tanaman tidak ditemukan"}
 
