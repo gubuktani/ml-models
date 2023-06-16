@@ -6,6 +6,7 @@ import numpy as np
 potato_model = None
 tomato_model = None
 apple_model = None
+rice_model = None
 leaf_model = None
 
 BUCKET_NAME = "gubuktani-models"  # Name of the GCP bucket where the models are stored
