@@ -24,7 +24,7 @@ def download_blob(bucket_name, source_blob_name, destination_file_name):
 
 
 def detection(request):
-    global potato_model, tomato_model, apple_model, leaf_model
+    global potato_model, tomato_model, apple_model, rice_model, leaf_model
 
     image = request.files["file"]
     image = np.array(
