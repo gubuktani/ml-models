@@ -44,18 +44,18 @@ Building four kinds of models that include [Apple leaf disease](https://github.c
   - [Apple Leaf Diseases Datasets](https://drive.google.com/drive/folders/1ecSphBr8TIXYt4OsOa6zVEPyHyAiRn2p?usp=sharing)
 - Tomato Leaf Diseases
 
-  - [Tomato Leaf Disease](https://www.kaggle.com/datasets/noulam/tomato)
+  - [Tomato Leaf Disease Datasets](https://www.kaggle.com/datasets/noulam/tomato)
 
 - Potato Plant Diseases
 
-  - [Potato Leaf Disease](https://www.kaggle.com/datasets/muhammadardiputra/potato-leaf-disease-dataset)
+  - [Potato Leaf Disease Datasets](https://www.kaggle.com/datasets/muhammadardiputra/potato-leaf-disease-dataset)
 
 - Rice Plant Disease
-  - [Rice Plant Disease]()
+  - [Rice Plant Disease Datasets](https://www.kaggle.com/datasets/vbookshelf/rice-leaf-diseases)
 
 - Leaf Detection
-  - [Leaf](https://www.kaggle.com/datasets/fabinahian/plant-disease-45-classes)
-  - [Not Leaf](https://www.kaggle.com/datasets/lijiyu/imagenet)
+  - [Leaf Datasets](https://www.kaggle.com/datasets/fabinahian/plant-disease-45-classes)
+  - [Not Leaf Datasets](https://www.kaggle.com/datasets/lijiyu/imagenet)
 
 ## Notebook for each case
 
